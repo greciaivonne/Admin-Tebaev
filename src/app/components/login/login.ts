@@ -28,7 +28,8 @@ export class Login implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/admin']);
+      // Si ya está logueado, lo manda directamente al panel
+      this.router.navigate(['/panel'], { replaceUrl: true });
     }
   }
 
@@ -42,7 +43,8 @@ export class Login implements OnInit {
 
     this.authService.login(email, password).subscribe({
       next: () => {
-        this.router.navigate(['/admin']);
+        // Reemplaza la URL del login en el historial para que no pueda volver atrás
+        this.router.navigate(['/panel'], { replaceUrl: true });
       },
       error: (err) => {
         this.errorMessage = err.error.message || 'Error al iniciar sesión';

@@ -1,0 +1,17 @@
+<div class="admin-container">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <h2>Panel Admin</h2>
+    <ul>
+      <li><a routerLink="avisos" routerLinkActive="active">📢 Avisos</a></li>
+      <li><a routerLink="formulario" routerLinkActive="active">📝 Formularios</a></li>
+    </ul>
+
+    <button class="logout-button" (click)="cerrarSesion()">🚪 Cerrar sesión</button>
+  </nav>
+
+  <!-- Contenido dinámico -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

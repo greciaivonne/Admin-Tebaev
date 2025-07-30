@@ -1,0 +1,54 @@
+<h2>Registros de Formulario</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Nombres</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+      <th>CURP</th>
+      <th>NSS</th>
+      <th>Grupo Sanguíneo</th>
+      <th>Tutor</th>
+      <th>Tel. Tutor</th>
+      <th>PDF</th>
+      <th>Pago</th>
+      <th>Datos</th>
+      <th>Estatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of formularios">
+      <td>{{ f.apellidoPaterno }}</td>
+      <td>{{ f.apellidoMaterno }}</td>
+      <td>{{ f.nombres }}</td>
+      <td>{{ f.telefono }}</td>
+      <td>{{ f.email }}</td>
+      <td>{{ f.curp }}</td>
+      <td>{{ f.nss }}</td>
+      <td>{{ f.grupoSanguineo }}</td>
+      <td>{{ f.nombreTutor }}</td>
+      <td>{{ f.telefonoTutor }}</td>
+      <td><a [href]="f.documentoUrl" target="_blank">Ver PDF</a></td>
+
+      <select [value]="f.pago" (change)="onSelectChange($event, f._id, 'pago')">
+  <option value="pendiente">Pendiente</option>
+  <option value="realizado">Realizado</option>
+</select>
+
+<select [value]="f.datos" (change)="onSelectChange($event, f._id, 'datos')">
+  <option value="por corregir">Por corregir</option>
+  <option value="correctos">Correctos</option>
+</select>
+
+<select [value]="f.estatus" (change)="onSelectChange($event, f._id, 'estatus')">
+  <option value="en proceso">En proceso</option>
+  <option value="admitido">Admitido</option>
+</select>
+
+
+    </tr>
+  </tbody>
+</table>

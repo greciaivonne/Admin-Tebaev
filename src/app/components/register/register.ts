@@ -31,7 +31,7 @@ export class Register implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/register']);
     }
   }
 
@@ -52,7 +52,7 @@ export class Register implements OnInit {
       next: () => {
         this.successMessage = 'Registro exitoso. Redirigiendo...';
         setTimeout(() => {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/login']);
         }, 2000);
       },
       error: (err) => {

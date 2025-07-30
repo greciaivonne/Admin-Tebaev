@@ -12,13 +12,19 @@ import { JwtInterceptor } from './auth/jwt-interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 
-import { ReactiveFormsModule } from '@angular/forms'; // Añade esta línea
+import { ReactiveFormsModule } from '@angular/forms';
+import { Panel } from './components/panel/panel';
+import { Avisosadm } from './components/avisosadm/avisosadm';
+import { Formulariosadm } from './components/formulariosadm/formulariosadm'; // Añade esta línea
 
 @NgModule({
   declarations: [
     App,
     Login,
-    Register
+    Register,
+    Panel,
+    Avisosadm,
+    Formulariosadm
   ],
   imports: [
     BrowserModule,

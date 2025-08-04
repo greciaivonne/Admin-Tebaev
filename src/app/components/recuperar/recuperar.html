@@ -1,0 +1,33 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-title">Recuperar Contraseña</div>
+    <div class="login-subtitle">Ingresa tu correo y te enviaremos un enlace</div>
+
+    <form [formGroup]="recuperarForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          formControlName="email"
+          [class.is-invalid]="submitted && recuperarForm.get('email')?.invalid"
+          placeholder="tucorreo@ejemplo.com"
+        />
+        <div class="error-message" *ngIf="submitted && recuperarForm.get('email')?.invalid">
+          Correo electrónico inválido
+        </div>
+      </div>
+
+      <div class="server-error" *ngIf="serverError">
+        {{ serverError }}
+      </div>
+
+      <button class="login-button" type="submit" [disabled]="loading">
+        {{ loading ? 'Enviando...' : 'Enviar enlace' }}
+      </button>
+    </form>
+
+    <div class="register-link">
+      <a routerLink="/login">Volver al login</a>
+    </div>
+  </div>
+</div>

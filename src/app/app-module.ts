@@ -12,11 +12,16 @@ import { JwtInterceptor } from './auth/jwt-interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 
-import { ReactiveFormsModule } from '@angular/forms';
-import { Panel } from './components/panel/panel';
-import { Avisosadm } from './components/avisosadm/avisosadm';
-import { Formulariosadm } from './components/formulariosadm/formulariosadm'; // Añade esta línea
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { Panel } from './components/panel/panel';
+
+import { Avisosadm } from './components/avisosadm/avisosadm';
+import { Formulariosadm } from './components/formulariosadm/formulariosadm';
+import { Recuperar } from './components/recuperar/recuperar';
+import { Restablecer } from './components/restablecer/restablecer'; // Añade esta línea
+
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     App,
@@ -24,13 +29,17 @@ import { Formulariosadm } from './components/formulariosadm/formulariosadm'; // 
     Register,
     Panel,
     Avisosadm,
-    Formulariosadm
+    Formulariosadm,
+    Recuperar,
+    Restablecer
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    MatIconModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

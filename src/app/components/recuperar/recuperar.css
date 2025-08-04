@@ -198,26 +198,3 @@
 .forgot-password-link a:hover {
   text-decoration: underline;
 }
-
-
-
-.login-logo {
-  display: block;
-  margin: 0 auto 1rem auto;
-  width: 100px;
-  height: auto;
-  animation: pulseLogo 3s ease-in-out infinite;
-  transform-origin: center;
-  filter: drop-shadow(0 0 4px rgba(161, 47, 47, 0.4));
-}
-
-@keyframes pulseLogo {
-  0%, 100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 4px rgba(161, 47, 47, 0.4));
-  }
-  50% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 12px rgba(161, 47, 47, 0.6));
-  }
-}

@@ -1,0 +1,24 @@
+<div class="reset-container">
+  <div class="lock-icon">
+    <mat-icon>lock</mat-icon>
+  </div>
+
+  <h2>Restablecer contraseña</h2>
+
+  <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="password">Nueva contraseña:</label>
+      <input type="password" id="password" formControlName="password" required />
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirmar contraseña:</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword" required />
+    </div>
+
+    <button type="submit" [disabled]="resetForm.invalid">Restablecer</button>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  </form>
+</div>

@@ -5,19 +5,13 @@ import { Register } from './components/register/register';
 import { Panel } from './components/panel/panel';
 import { Avisosadm } from './components/avisosadm/avisosadm';
 import { Formulariosadm } from './components/formulariosadm/formulariosadm';
+import { Recuperar } from './components/recuperar/recuperar';
+import { Restablecer } from './components/restablecer/restablecer'; // <-- Importa el componente
 import { AuthGuard } from './auth/auth-guard';
 
 const routes: Routes = [
-  { 
-    path: 'login', 
-    component: Login,
-    data: { title: 'Inicio de sesión administrativo' } 
-  },
-  { 
-    path: 'register', 
-    component: Register,
-    data: { title: 'Registro administrativo' } 
-  },
+  { path: 'login', component: Login, data: { title: 'Inicio de sesión administrativo' } },
+  { path: 'register', component: Register, data: { title: 'Registro administrativo' } },
   { 
     path: 'panel', 
     component: Panel,
@@ -27,17 +21,13 @@ const routes: Routes = [
       { path: 'formulario', component: Formulariosadm },
       { path: '', redirectTo: 'avisos', pathMatch: 'full' }
     ],
-    data: { title: 'Panel administrativo' }
+    data: { title: 'Login administrativo' }
   },
-  { 
-    path: '', 
-    redirectTo: 'login', 
-    pathMatch: 'full' 
-  },
-  { 
-    path: '**', 
-    redirectTo: 'login' 
-  }
+  { path: 'recuperar', component: Recuperar, data: { title: 'Recuperar contraseña' } }, 
+  // Cambia esta ruta para aceptar el token como parámetro en la ruta
+  { path: 'restablecer/:token', component: Restablecer, data: { title: 'Restablecer contraseña' } }, 
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
